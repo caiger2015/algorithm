@@ -1,0 +1,41 @@
+package algorithm.sorting;
+
+/**        
+ * Title: BubbleSort.java    
+ * Description: 
+ * @author caigen       
+ * @created 2015年5月14日 下午9:21:06    
+ */
+
+public class BubbleSort implements ISort {
+
+	/** 
+	 * Description:冒泡排序
+	 * @author caigen       
+	 * @created 2015年5月14日 下午9:21:06      
+	 * @param a     
+	 * @see algorithm.sorting.ISort#sort(int[])     
+	 */
+
+	@Override
+	public void sort(int[] a) {
+		if(a==null||a.length<=1)
+			return;
+		//标记一次遍历是否有交换，没有则表示排序完成
+		boolean exchange=true;
+		for(int i=a.length-1;i>0&&exchange;i--){
+			exchange=false;
+			for(int j=0;j<i;j++){
+				if(a[j]>a[j+1]){
+					int temp=a[j+1];
+					a[j+1]=a[j];
+					a[j]=temp;
+					exchange=true;
+				}
+			}
+		}
+	}
+
+
+
+}
