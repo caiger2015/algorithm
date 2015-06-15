@@ -24,7 +24,7 @@ public class SelectSort implements ISort {
 		//循环n-1次
 		for(int i=0;i<a.length-1;i++)
 		{
-			int min=a[i];
+			int min=i;
 			//找出最小值的索引
 			for(int j=i+1;j<a.length;j++){
 				if(a[min]>a[j])

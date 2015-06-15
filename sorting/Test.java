@@ -16,8 +16,8 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] a=new int[]{2,1,3,9,6,2,4,1,9,7};
-		ISort sortMethod= new QuickSort();
+		int[] a=new int[]{5,2,5,1,6,3,5,4,5};
+		ISort sortMethod= new HeapSort();
 		sortMethod.sort(a);
 		System.out.println(Arrays.toString(a)+sortMethod.toString());
 	}

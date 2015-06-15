@@ -19,6 +19,7 @@ public class HeapSort implements ISort
 	 */
 
 	@Override
+	//堆是完全二叉树
 	//把n个元素的数组看成堆的层遍历，第i个元素有一下性质：
 	//i=0，则i为根节点；
 	//若2i+1<n，则2i+1为它的左孩子，若2i+2<n，则为i的右孩子
@@ -49,6 +50,7 @@ public class HeapSort implements ISort
 		int i=begin,j=2*i+1;
 		int temp=a[i];
 		while(j<=end){
+			//比较左右结点大小，保证平衡性
 			if(j<end&&a[j]<a[j+1]){
 				j++;
 			}

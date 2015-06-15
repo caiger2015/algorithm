@@ -22,20 +22,17 @@ public class BubbleSort implements ISort {
 		if(a==null||a.length<=1)
 			return;
 		//标记一次遍历是否有交换，没有则表示排序完成
-		boolean exchange=true;
-		for(int i=a.length-1;i>0&&exchange;i--){
-			exchange=false;
+		boolean isExchanged=true;
+		for(int i=a.length-1;i>0&&isExchanged;i--){
+			isExchanged=false;
 			for(int j=0;j<i;j++){
 				if(a[j]>a[j+1]){
 					int temp=a[j+1];
 					a[j+1]=a[j];
 					a[j]=temp;
-					exchange=true;
+					isExchanged=true;
 				}
 			}
 		}
 	}
-
-
-
 }
