@@ -1,4 +1,5 @@
-package algorithm.sorting;
+package com.cg.algorithm.sorting;
+
 /*
  *计数排序算法，时间复杂度O(n)，空间复杂度O(n)
  *算法思路：在知道所要排序的数组中元素的大致范围时使用，该范围关系到桶数组b的大小：可以是max-min+1，也可以和a数组相同的大小
@@ -15,41 +16,41 @@ public class CountingSort implements ISort {
 
 	@Override
 	public void sort(int[] a) {
-		int max = Integer.MIN_VALUE,min = Integer.MAX_VALUE;
-		//找到最大和最小
-		for(int i:a){
-			if(i > max){
-				max = i; 
-			} 
-			if(i < min){
+		int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+		// 找到最大和最小
+		for (int i : a) {
+			if (i > max) {
+				max = i;
+			}
+			if (i < min) {
 				min = i;
 			}
 		}
-		int[] b = new int[max-min+1];
-		//统计a[j]个数对应到b中，i-min可以处理有负数的情况
-		for(int i : a){
-			b[i-min]++;
+		int[] b = new int[max - min + 1];
+		// 统计a[j]个数对应到b中，i-min可以处理有负数的情况
+		for (int i : a) {
+			b[i - min]++;
 		}
 		int t = 0;
-		for(int j = min; j < b.length+min; j++){
-			while(b[j-min] > 0){
-			    a[t++] = j;
-			    b[j-min]--;
+		for (int j = min; j < b.length + min; j++) {
+			while (b[j - min] > 0) {
+				a[t++] = j;
+				b[j - min]--;
 			}
 		}
-		
-//		//b[j]表示a中<=j的元素的个数
-//		for(int j = 1; j < b.length; j++){
-//			b[j] = b[j] + b[j-1];
-//		}
-//		//
-//		int c[] = new int[a.length];
-//		for(int k = 0;k < a.length; k++){
-//			c[b[a[k]]-1] = b[a[k]];
-//			b[a[k]]--;
-//		}
-//		return c;
-		
+
+		// //b[j]表示a中<=j的元素的个数
+		// for(int j = 1; j < b.length; j++){
+		// b[j] = b[j] + b[j-1];
+		// }
+		// //
+		// int c[] = new int[a.length];
+		// for(int k = 0;k < a.length; k++){
+		// c[b[a[k]]-1] = b[a[k]];
+		// b[a[k]]--;
+		// }
+		// return c;
+
 	}
-	
+
 }

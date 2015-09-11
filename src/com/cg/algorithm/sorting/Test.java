@@ -1,4 +1,4 @@
-package algorithm.sorting;
+package com.cg.algorithm.sorting;
 
 import java.util.Arrays;
 /**        

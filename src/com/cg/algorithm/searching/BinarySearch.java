@@ -1,4 +1,4 @@
-package algorithm.searching;
+package com.cg.algorithm.searching;
 
 public class BinarySearch {
 
