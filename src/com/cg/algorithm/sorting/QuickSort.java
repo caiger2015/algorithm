@@ -103,21 +103,4 @@ public class QuickSort implements ISort {
 		A[b] = A[a] ^ A[b];
 		A[a] = A[a] ^ A[b];
 	}
-	private int partition2(int[] a, int begin, int end){
-		int i=begin,j=end, temp=a[i];
-		while(i<j){
-			while(i<j&&temp<a[j]){
-				j--;
-			}
-			a[i]=a[j];
-			i++;
-			while(i<j&&temp>=a[i]){
-				i++;
-			}
-			a[j]=a[i];
-			j--;
-		}
-		a[i]=temp;
-		return i;
-	}
 }

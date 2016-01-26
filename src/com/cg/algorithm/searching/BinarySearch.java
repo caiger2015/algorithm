@@ -17,7 +17,7 @@ public class BinarySearch {
 		else if(A[mid]<target)
 			return binarySearch(A,mid+1,end,target);
 		else
-			return mid;		
+			return mid;
 	}
 	public static int binarySearch(int[] A,int target){
 		if(A==null||A.length==0)

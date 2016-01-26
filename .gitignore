@@ -42,3 +42,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /bin
+
+*.classpath
+.idea/.name
+.idea/compiler.xml
+*.xml
+algorithm.iml
+*.project
