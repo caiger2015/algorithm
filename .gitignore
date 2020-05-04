@@ -44,8 +44,7 @@ Temporary Items
 /bin
 
 *.classpath
-.idea/.name
-.idea/compiler.xml
+.idea
 *.xml
 algorithm.iml
 *.project
