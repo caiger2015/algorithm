@@ -6,7 +6,7 @@ package com.cg.algorithm.sorting;
  * @author caigen
  * @created 2015年5月14日 下午8:35:11
  */
-
+@FunctionalInterface
 public interface ISort {
 	public void sort(int[] a);
 
@@ -15,4 +15,10 @@ public interface ISort {
 	 * 
 	 * @param a
 	 */
+
+	default void swap(int[] a, int j, int i) {
+		int temp = a[j];
+		a[j] = a[i];
+		a[i] = temp;
+	}
 }
