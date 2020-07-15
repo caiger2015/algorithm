@@ -6,17 +6,20 @@ import java.util.Arrays;
  * Title: MergeSort.java Description:
  *
  * @author caigen
- * @created 2015Äê5ÔÂ14ÈÕ ÏÂÎç10:35:17
+ * @created 2015å¹´5æœˆ14æ—¥ ä¸‹åˆ10:35:17
  */
 
 public class MergeSort implements ISort {
 
     /**
-     * Description:¹é²¢ÅÅĞòËã·¨£¬Ê±¼ä¸´ÔÓ¶ÈO(nlogn)~O(n^2),¿Õ¼ä¸´ÔÓ¶È£ºO(n),ÎÈ¶¨µÄ
+     * Description:å½’å¹¶æ’åºç®—æ³•
+     * æ—¶é—´å¤æ‚åº¦O(nlogn)~O(n^2)
+     * ç©ºé—´å¤æ‚åº¦ï¼šO(n)
+     * ç¨³å®šçš„
      *
      * @param a
      * @author caigen
-     * @created 2015Äê5ÔÂ14ÈÕ ÏÂÎç10:35:17
+     * @created 2015å¹´5æœˆ14æ—¥ ä¸‹åˆ10:35:17
      * @see com.cg.algorithm.sorting.ISort#sort(int[])
      */
     @Override
@@ -29,11 +32,11 @@ public class MergeSort implements ISort {
     }
 
     /**
-     * Description: µİ¹éµ÷ÓÃ½øĞĞ·Ö×é£¬×Ô¶¥ÏòÏÂ
+     * Description: é€’å½’è°ƒç”¨è¿›è¡Œåˆ†ç»„ï¼Œè‡ªé¡¶å‘ä¸‹
      *
-     * @param a     ÒªÅÅĞòµÄÊı×é
-     * @param begin ×ÓÊı×é¿ªÊ¼
-     * @param end   ×ÓÊı×é½áÎ²
+     * @param a     è¦æ’åºçš„æ•°ç»„
+     * @param begin å­æ•°ç»„å¼€å§‹
+     * @param end   å­æ•°ç»„ç»“å°¾
      */
     private void mergeSort(int[] a, int begin, int end) {
         if (begin >= end) {
@@ -46,18 +49,21 @@ public class MergeSort implements ISort {
     }
 
     /**
-     * Description: ÀûÓÃ¸¨ÖúÊı×éºÏ²¢Á½¸ö×ÓÊı×é
+     * Description: åˆ©ç”¨è¾…åŠ©æ•°ç»„åˆå¹¶ä¸¤ä¸ªå­æ•°ç»„
      *
-     * @param a     ÒªÅÅĞòµÄÊı×é
-     * @param begin µÚÒ»¸ö×ÓÊı×é¿ªÊ¼
-     * @param mid   µÚÒ»¸ö×ÓÊı×é½áÎ²
-     * @param end   µÚ¶ş¸ö×ÓÊı×é½áÎ²
+     * @param a     è¦æ’åºçš„æ•°ç»„
+     * @param begin ç¬¬ä¸€ä¸ªå­æ•°ç»„å¼€å§‹
+     * @param mid   ç¬¬ä¸€ä¸ªå­æ•°ç»„ç»“å°¾
+     * @param end   ç¬¬äºŒä¸ªå­æ•°ç»„ç»“å°¾
      */
     private static void merge(int[] a, int begin, int mid, int end) {
 		if (begin >= end || end > a.length) {
 			return;
 		}
-        int i = begin, j = mid + 1, k = 0, b[] = new int[end - begin + 1];
+        int i = begin;
+        int j = mid + 1;
+        int k = 0;
+        int[] b = new int[end - begin + 1];
         while (i <= mid && j <= end) {
             if (a[i] <= a[j]) {
                 b[k++] = a[i++];
@@ -65,21 +71,21 @@ public class MergeSort implements ISort {
                 b[k++] = a[j++];
             }
         }
-        // ´¦ÀíÊ£ÏÂµÄÔªËØ
+        // å¤„ç†å‰©ä¸‹çš„å…ƒç´ 
         while (i <= mid) {
 			b[k++] = a[i++];
 		}
         while (j <= end) {
 			b[k++] = a[j++];
 		}
-        // ½«bÖĞÔªËØÌí¼Óµ½aÖĞ
+        // å°†bä¸­å…ƒç´ æ·»åŠ åˆ°aä¸­
         for (int m = 0; m <= end - begin; m++) {
             a[begin + m] = b[m];
         }
     }
 
 	/**
-	 * ÓÃ2^n¿ØÖÆÊı×éÏÂ±êÊµÏÖ·Ö×é£¬×Ôµ×ÏòÉÏ
+	 * ç”¨2^næ§åˆ¶æ•°ç»„ä¸‹æ ‡å®ç°åˆ†ç»„ï¼Œè‡ªåº•å‘ä¸Š
 	 * @param a
 	 */
 	public static void mergeSortWithLoop(int[] a) {
@@ -88,10 +94,10 @@ public class MergeSort implements ISort {
 		}
 		int n = a.length;
 		for (int d = 1; d < n; d <<= 1) {
-			//Ã¿´ÎÈ¡ÏàÁÚµÄÁ½×é½øĞĞºÏ²¢
+			//æ¯æ¬¡å–ç›¸é‚»çš„ä¸¤ç»„è¿›è¡Œåˆå¹¶
 			for (int i = 0; i < n; i += (d * 2)) {
 				int hi = Math.min(i + d * 2 - 1, n - 1);
-				//ÕÒ³ömergeº¯ÊıµÄ²ÎÊı£¬ÅĞ¶Ï±ß½ç
+				//æ‰¾å‡ºmergeå‡½æ•°çš„å‚æ•°ï¼Œåˆ¤æ–­è¾¹ç•Œ
 				merge(a, i, i + d - 1, hi);
 			}
 		}

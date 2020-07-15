@@ -7,11 +7,13 @@ public class QuickSort implements ISort {
     }
 
     /**
-     * Description:¿ìËÙÅÅĞòËã·¨£¬Ê±¼ä¸´ÔÓ¶ÈO(nlogn)
+     * Description:å¿«é€Ÿæ’åºç®—æ³•
+	 * æ—¶é—´å¤æ‚åº¦O(nlogn)
+	 * ä¸ç¨³å®šçš„
      *
      * @param a
      * @author caigen
-     * @created 2015Äê5ÔÂ14ÈÕ ÏÂÎç8:39:52
+     * @created 2015å¹´5æœˆ14æ—¥ ä¸‹åˆ8:39:52
      * @see com.cg.algorithm.sorting.ISort#sort(int[])
      */
 
@@ -27,7 +29,7 @@ public class QuickSort implements ISort {
 //    /**
 //     * Description:
 //     *
-//     * @param a     ÒªÅÅĞòµÄÊı×é
+//     * @param a     è¦æ’åºçš„æ•°ç»„
 //     * @param begin
 //     * @param end
 //     */
@@ -36,35 +38,35 @@ public class QuickSort implements ISort {
 //			return;
 //		}
 //        int index = partition(A, begin, end);
-//        // µİ¹éµ÷ÓÃ£¬Ã¿´Î½øĞĞpartitionÊ±µÄbeginºÍend¶¼ÔÚ¸üĞÂ
+//        // é€’å½’è°ƒç”¨ï¼Œæ¯æ¬¡è¿›è¡Œpartitionæ—¶çš„beginå’Œendéƒ½åœ¨æ›´æ–°
 //        quickSort(A, begin, index - 1);
 //        quickSort(A, index + 1, end);
 //    }
 //
     /**
-     * Description: ÕÒµ½Ë÷ÒıÎªbeginµÄÔªËØÔÚÊı×éAÖĞÅÅĞòºÃºóµÄÎ»ÖÃ
+     * Description: æ‰¾åˆ°ç´¢å¼•ä¸ºbeginçš„å…ƒç´ åœ¨æ•°ç»„Aä¸­æ’åºå¥½åçš„ä½ç½®
      *
-     * @param a     Ä¿±êÊı×é
-     * @param lo ¿ªÊ¼µÄÏÂ±ê
-     * @param hi   ½áÊøµÄÏÂ±ê
-     * @return ·µ»Øbegin¶ÔÓ¦µÄÊı×éÔªËØÅÅĞòºóµÄÎ»ÖÃ
+     * @param a     ç›®æ ‡æ•°ç»„
+     * @param lo å¼€å§‹çš„ä¸‹æ ‡
+     * @param hi   ç»“æŸçš„ä¸‹æ ‡
+     * @return è¿”å›beginå¯¹åº”çš„æ•°ç»„å…ƒç´ æ’åºåçš„ä½ç½®
      */
     private int partition1(int[] a, int lo, int hi) {
         int temp = a[lo];
-        // Ë«Ö¸ÕëÖğ²½È·¶¨tempµÄ×îÖÕÎ»ÖÃ£¬ÒÔa[lo]ÎªÉÚ±ø
+        // åŒæŒ‡é’ˆé€æ­¥ç¡®å®štempçš„æœ€ç»ˆä½ç½®ï¼Œä»¥a[lo]ä¸ºå“¨å…µ
         while (lo < hi) {
-        	//ÏÈ´ÓºóÍùÇ°ÕÒĞ¡ÓÚtempµÄ
+        	//å…ˆä»åå¾€å‰æ‰¾å°äºtempçš„
 			while (lo < hi && a[hi] > temp) {
 				hi--;
 			}
 			a[lo] = a[hi];
-			//´ÓÇ°ÍùºóÕÒ´óÓÚtempµÄ
+			//ä»å‰å¾€åæ‰¾å¤§äºtempçš„
 			while (lo < hi && a[lo] <= temp) {
 				lo++;
 			}
 			a[hi] = a[lo];
 		}
-        //ÏàÓöµÄÎ»ÖÃ¼´Îªtemp×îÖÕÎ»ÖÃ
+        //ç›¸é‡çš„ä½ç½®å³ä¸ºtempæœ€ç»ˆä½ç½®
 		a[lo] = temp;
 		return lo;
     }
@@ -82,31 +84,31 @@ public class QuickSort implements ISort {
         if (lo >= hi) {
             return hi;
         }
-        //Ë«Ö¸Õë
+        //åŒæŒ‡é’ˆ
         int lt = lo, gt = hi, temp = a[lo];
 		while (true) {
-			//Ìø³öÑ­»·Ê±£¬ltÖ¸Ïò´óÓÚtempµÄÎ»ÖÃ
+			//è·³å‡ºå¾ªç¯æ—¶ï¼ŒltæŒ‡å‘å¤§äºtempçš„ä½ç½®
 			while (lt < hi && a[lt] <= temp) {
 				lt++;
 			}
-			//Ìø³öÑ­»·Ê±£¬ºógtÖ¸ÏòĞ¡ÓÚtempµÄÎ»ÖÃ
+			//è·³å‡ºå¾ªç¯æ—¶ï¼ŒgtæŒ‡å‘å°äºtempçš„ä½ç½®
 			while (lo < gt && a[gt] > temp) {
 				gt--;
 			}
-			//Èç¹ûltºÍgtÏàÓö£¬Ìø³öÑ­»·
+			//å¦‚æœltå’Œgtç›¸é‡ï¼Œè·³å‡ºå¾ªç¯
 			if (lt >= gt) {
 				break;
 			}
-			//½»»»´óĞ¡Öµ
+			//äº¤æ¢å¤§å°å€¼
 			swap(a, lt, gt);
 		}
-		//a[lo]ÔÚ×ó²à£¬¸úĞ¡ÓÚtempµÄ½»»»
+		//a[lo]åœ¨å·¦ä¾§ï¼Œè·Ÿå°äºtempçš„äº¤æ¢
         swap(a, lo, gt);
         return gt;
     }
 
 	/**
-	 * ÈıÖ¸Õë¿ìËÙÅÅĞò£¬ÅÅĞòÍê³ÉºóÏàµÈµÄÖµÔÚÖĞ¼ä£¬
+	 * ä¸‰æŒ‡é’ˆå¿«é€Ÿæ’åºï¼Œæ’åºå®Œæˆåç›¸ç­‰çš„å€¼åœ¨ä¸­é—´ï¼Œ
 	 * @param a
 	 * @param lo
 	 * @param hi
@@ -116,19 +118,20 @@ public class QuickSort implements ISort {
 			return;
 		}
 		int lt = lo, gt = hi, i = lo + 1, temp = a[lo];
-		//±éÀúiÎ»ÖÃÔªËØ
+		//éå†iä½ç½®å…ƒç´ 
 		while (i <= gt) {
-			//Ğ¡ÓÚtempµÄ½»»»×î×óµÄtempÖµa[lt]£¬i++£¬lt++
+			//å°äºtempçš„äº¤æ¢æœ€å·¦çš„tempå€¼a[lt]ï¼Œi++ï¼Œlt++
 			if (a[i] < temp) {
 				swap(a, i++, lt++);
-			//´óÓÚtempµÄ½»»»×îÓÒ¶ËµÄa[gt]£¬gt--
+			//å¤§äºtempçš„äº¤æ¢æœ€å³ç«¯çš„a[gt]ï¼Œgt--
 			} else if (a[i] > temp) {
 				swap(a, i, gt--);
-			//µÈÓÚtempµÄ£¬i++
+			//ç­‰äºtempçš„ï¼Œi++
 			} else {
 				i++;
 			}
 		}
+		//å¾ªç¯ç»“æŸæ—¶ltæ˜¯æœ€å·¦è¾¹çš„tempï¼Œgtæ˜¯æœ€å³è¾¹çš„temp
 		quickSortWith3way(a, lo, lt - 1);
 		quickSortWith3way(a, gt + 1, hi);
 	}
@@ -136,9 +139,38 @@ public class QuickSort implements ISort {
 
     public static void main(String[] args) {
         int[] a = new int[]{8, 7, 6, 6, 6, 7, 8, 5, 4, 3, 2, 1};
-		new QuickSort().quickSort(a, 0, a.length - 1);
+		new QuickSort().quick(a);
         System.out.println(Arrays.toString(a));
     }
+
+	public void quick(int[] a) {
+		if (a == null || a.length == 0) {
+			return;
+		}
+		quickS(a, 0, a.length - 1);
+	}
+
+	private void quickS(int[] a, int l, int r) {
+		//è¾¹ç•Œæ¡ä»¶
+		if (l >= r) {
+			return;
+		}
+		int temp = a[l];
+		int i = l;
+		int j = l+1;
+		while (j <= r) {
+			if (a[j] < temp) {
+				swap(a, j, i);
+				i++;
+			}
+			j++;
+		}
+		swap(a, r, i);
+		quickS(a, l, i - 1);
+		quickS(a, i + 1, r);
+	}
+
+
 
 
 }

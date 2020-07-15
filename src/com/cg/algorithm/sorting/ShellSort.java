@@ -2,12 +2,13 @@ package com.cg.algorithm.sorting;
 
 /**
  * Title: ShellSort.java Description:
- * �ֽ���С���������ǲ��������һ�֣����ռ��d���з����������ÿ������֮��d/2��֪��d=1�������һ��
- * ʱ�临�Ӷȣ�O(nlogn)~O(n^2)�����ȶ���һ�β������ȶ��ģ����Ƕ�β����ı����λ��
- * ͨ�����ֵ��߼�������ѭ���еĽ�������
+ * 又叫缩小增量排序，是插入排序的一种，按照间隔d进行分组插入排序，每次排序之后d/2，知道d=1进行最后一次
+ * 时间复杂度：O(nlogn)~O(n^2)
+ * 不稳定：一次插入是稳定的，但是多次插入会改变相对位置
+ * 通过二分的逻辑，减少循环中的交换次数
  *
  * @author caigen
- * @created 2015��5��14�� ����8:14:54
+ * @created 2015年5月14日 下午8:14:54
  */
 
 public class ShellSort implements ISort {
@@ -33,9 +34,9 @@ public class ShellSort implements ISort {
 			return;
 		}
         int n = a.length;
-		//ִ��log(N)��
+		//执行log(N)次
         for (int d = n >> 1; d > 0; d >>= 1) {
-            //ÿ����dΪ����������a[i]��ÿ����n/d����Ա����dΪ������ӵڶ����һ����ĩβִ�в������
+            //每次以d为间隔分组插入a[i]，每组有n/d个成员，以d为间隔，从第二组第一个到末尾执行插入操作
             for (int i = d; i < n; i ++) {
                 int temp = a[i], j = i - d;
                 while (j >= 0 && a[j] > temp) {
