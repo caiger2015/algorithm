@@ -8,8 +8,8 @@ public class ImplementstrStr {
 	}
 
 	/**
-	 * @param s被匹配的字符串
-	 * @param n匹配的字符串
+	 * @param s 被匹配的字符串
+	 * @param n 匹配的字符串
 	 * @return n在s中第一次出现时s中第一个字符的位置，不存在时返回-1
 	 */
 	public static int strStr(String s, String n) {

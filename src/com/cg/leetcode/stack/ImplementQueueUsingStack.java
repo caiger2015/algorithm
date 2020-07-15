@@ -28,8 +28,8 @@ class MyQueue {
 	LinkedList<Integer> top = new LinkedList<Integer>();
 	LinkedList<Integer> data = new LinkedList<Integer>();
 
-	// ����stack���Ի�˳������ã�
-	// topջ����queue��˳��洢���ݣ�dataջ����stack��˳��洢���ݣ�ÿ��top��û������ʱ����data�е����ݵ���top�С�
+	// 利用stack可以换顺序的作用，
+	// top栈按照queue的顺序存储数据，data栈按照stack的顺序存储数据，每当top中没有数据时，将data中的数据倒入top中。
 	// Push element x to the back of queue.
 	public void push(int x) {
 		data.push(x);

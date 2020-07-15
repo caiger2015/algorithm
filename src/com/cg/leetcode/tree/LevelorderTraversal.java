@@ -16,9 +16,9 @@ public class LevelorderTraversal {
 		int pre = 1, cur = 0;
 		que.add(root);
 		while (!que.isEmpty()) {
-			// �ط�����Ӧ����ѭ���ڶ��壬ÿ�ζ�������ʵ��
+			// 地方变量应当在循环内定义，每次都建立新实例
 			List<Integer> nextList = new ArrayList<Integer>();
-			// nextList.clear();��res����ӵ���nextList���������ͣ���һ�����res�е�nextListҲ��գ�
+			// nextList.clear();在res中添加的是nextList的引用类型，这一步会把res中的nextList也清空！
 			while (pre != 0) {
 				TreeNode temp = que.poll();
 				pre--;
@@ -38,7 +38,7 @@ public class LevelorderTraversal {
 		}
 		return res;
 	}
-	//�ӵײ����ÿһ�У���stack�洢�Ƚ����
+	//从底部输出每一行，用stack存储先进后出
 	public List<List<Integer>> levelOrderBottom(TreeNode root) {
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
 		if (root == null)
@@ -49,9 +49,9 @@ public class LevelorderTraversal {
 		int pre = 1, now = 0;
 		que.add(root);
 		while (!que.isEmpty()) {
-			// �ط�����Ӧ����ѭ���ڶ��壬ÿ�ζ�������ʵ��
+			// 地方变量应当在循环内定义，每次都建立新实例
 			List<Integer> nextList = new ArrayList<Integer>();
-			// nextList.clear();��res����ӵ���nextList���������ͣ���һ�����res�е�nextListҲ��գ�
+			// nextList.clear();在res中添加的是nextList的引用类型，这一步会把res中的nextList也清空！
 			while (pre != 0) {
 				TreeNode temp = que.poll();
 				pre--;

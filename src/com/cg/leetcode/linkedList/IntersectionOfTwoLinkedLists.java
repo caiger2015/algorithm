@@ -26,7 +26,7 @@ public class IntersectionOfTwoLinkedLists {
 	}
 
 	/*
-	 * ����ཻ����ôĩβ�ڵ��Ȼ��ͬ����¼�¸��Եĳ��ȣ���|lenA-lenB|�������Ϳ�����
+	 * 如果相交，那么末尾节点必然相同，记录下各自的长度，相差（|lenA-lenB|步遍历就可相遇
 	 */
 	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 		if (headA == null || headB == null)
@@ -62,19 +62,19 @@ public class IntersectionOfTwoLinkedLists {
 	}
 
 	/*
-	 * ���õ�˼·
+	 * 不好的思路
 	 */
 	public static ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
 		if (headA == null || headB == null)
 			return null;
 		ListNode p = headA;
 		ListNode q = headB;
-		while (p.next != null && q.next != null)// �ҳ������Ǹ�����
+		while (p.next != null && q.next != null)// 找出长的那个链表
 		{
 			p = p.next;
 			q = q.next;
 		}
-		if (p.next == null)// ʼ�հ�p��ɳ����Ǹ����Գ�������Ŀ���˼·��ֻ����һ�����
+		if (p.next == null)// 始终把p设成长的那个，对称性问题的考虑思路，只考虑一种情况
 		{
 			p = headB;
 			q = headA;

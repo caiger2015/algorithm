@@ -10,17 +10,17 @@ public class TrappingRainWater {
 	}
 
 	/*
-	 * ˼·�������ж�ÿ��һ���ı仯����̬��˼���仯���̣��ҵ����ޣ��ٽ磩�ĵط�
+	 * 思路：依次判断每进一步的变化，动态的思考变化过程，找到极限（临界）的地方
 	 */
 	public static int trap(int[] A) {
-		// �жϿյ����[]
+		// 判断空的情况[]
 		if (A.length < 3)
 			return 0;
 		int high = 0;
 		int highindex = 0;
 		int res = 0;
 		/*
-		 * �ҵ���������Ϊ�ٽ�ֵ�� �����߿��ǣ�������high֮ǰ��ÿһ���仯�����Լ򵥵Ŀ��� ������high֮��ֹͣ
+		 * 找到最大的数即为临界值， 分两边考虑，在遇到high之前的每一步变化都可以简单的考虑 当遇到high之后，停止
 		 */
 		for (int i = 0; i < A.length; i++) {
 			if (high < A[i]) {
@@ -29,8 +29,8 @@ public class TrappingRainWater {
 			}
 		}
 		/*
-		 * �ȴ���߿�ʼÿһ�����ǣ� ˫ָ��һ��ָ����߽�left����һ��ָ��i ֻ�е�i>leftʱ��������߽磬
-		 * ��Ϊ�Ѿ��ҵ���high������������high֮ǰ��left<high ���Ե�������ÿһ��
+		 * 先从左边开始每一步考虑， 双指针一个指向左边界left，另一个指向i 只有当i>left时，更新左边界，
+		 * 因为已经找到了high，所以在遇到high之前，left<high 可以单独考虑每一步
 		 */
 		int left = A[0];
 		for (int i = 0; i < highindex; i++) {
@@ -51,14 +51,14 @@ public class TrappingRainWater {
 		return res;
 	}
 
-	// �����˼·��̫���鷳�ˣ�������
+	// 错误的思路，太过麻烦了！！！！
 	public static int trap1(int[] A) {
 		Stack<Integer> left = new Stack<Integer>();
 		int res = 0;
 		int l = 0;
 		int r = 0;
 		/*
-		 * �ҵ���һ����߽�,��һ���½��ĵط�
+		 * 找到第一个左边界,第一次下降的地方
 		 */
 		if (A.length <= 2)
 			return 0;

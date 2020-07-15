@@ -5,7 +5,7 @@ package com.cg.leetcode.bitManipulation;
  * @author caiger
  */
 public class PowerOfTwo {
-	// ����������args�����ķ�����run-->run configuration��ѡ���Ӧ���࣬����program arguments
+	// 设置命令行args参数的方法：run-->run configuration中选择对应的类，设置program arguments
 	public static void main(String[] args) {
 		String str = args[0];
 		int n = Integer.parseInt(str);

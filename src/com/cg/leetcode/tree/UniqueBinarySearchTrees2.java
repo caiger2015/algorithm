@@ -19,25 +19,25 @@ public class UniqueBinarySearchTrees2 {
         return generateTrees(1,n);
     }
 	/**
-	 * ��̬�滮����i����Ϊ���ڵ�ʱ������������1~i-1�Ľ����ɵ�bst������������i+1~n�Ľ����ɵ�bst
-	 * 			  ������������ϼ�ΪiΪ��ʱbst�����й��ɡ����õݹ�ķ�ʽ��ÿ�η�����õ�bstͷ��㡣
-	 * 			 ���ս��Ҫ���ص���List<TreeNode>,�����ڶ�̬�滮�����о������������ⷵ�صĽ�������Ƹ�����Ľ����
+	 * 动态规划：第i个数为根节点时，左子树是由1~i-1的结点组成的bst，右子树是由i+1~n的结点组成的bst
+	 * 			  左右子树的组合即为i为根时bst的所有构成。利用递归的方式，每次返回求得的bst头结点。
+	 * 			 最终结果要返回的是List<TreeNode>,所以在动态规划过程中就是利用子问题返回的结果来递推父问题的结果。
 	 * @param begin
 	 * @param end
-	 * @return ��begin��end�����нڵ���ɵ�BST
+	 * @return 从begin到end的所有节点组成的BST
 	 */
 	private List<TreeNode> generateTrees(int begin, int end) {
 		List<TreeNode> res = new ArrayList<TreeNode>();
 		if (begin > end) {
-			// ��ʾ���Ϊ�գ�List�д洢null
+			// 表示结点为空，List中存储null
 			res.add(null);
 			return res;
 		}
 		for (int i = begin; i <= end; i++) {
-			// ת��Ϊ��������⣬�ݹ���ã�������������ļ��ϣ���UniqueBST1�л����С�
+			// 转化为子问题求解，递归调用，获得左右子树的集合，从UniqueBST1中获得灵感。
 			List<TreeNode> left = generateTrees(begin, i - 1);
 			List<TreeNode> right = generateTrees(i + 1, end);
-			// ���������������
+			// 交叉组合左右子树
 			for (TreeNode l : left)
 				for (TreeNode r : right) {
 					TreeNode root = new TreeNode(i);

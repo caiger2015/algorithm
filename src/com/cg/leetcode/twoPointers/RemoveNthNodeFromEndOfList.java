@@ -26,10 +26,10 @@ public class RemoveNthNodeFromEndOfList {
 	}
 
 	public static ListNode removeNthFromEnd(ListNode headListNode, int n) {
-		if (headListNode == null || n == 0)// �����Ա�̣����ӽ�׳��
+		if (headListNode == null || n == 0)// 防御性编程，增加健壮性
 			return headListNode;
 		/*
-		 * û��Ҫ����������û�иı�first��second��ʵ����,����Ҫ�½�ʵ������
+		 * 没必要这样做，并没有改变first和second的实例域,不需要新建实例对象
 		 * 
 		 * ListNode first = new ListNode(headListNode.val); ListNode second =
 		 * new ListNode(headListNode.val); first.next = headListNode.next;

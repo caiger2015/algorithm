@@ -19,13 +19,13 @@ public class BinaryTreeRightSideView {
 		System.out.print(rightSideView(p).toString());
 	}
 
-	// ������Ȳ�������ҳ�ÿһ������ұߵ��Ǹ�Ԫ��
+	// 广度优先层遍历，找出每一层的最右边的那个元素
 	public static List<Integer> rightSideView(TreeNode root) {
 		List<Integer> res = new ArrayList<Integer>();
 		if (root == null)
 			return res;
 		Deque<TreeNode> que = new LinkedList<TreeNode>();
-		// cur��ʾ��ǰ��Ľڵ�����next��ʾ��һ��Ľڵ���
+		// cur表示当前层的节点数，next表示下一层的节点数
 		int cur = 1, next = 0;
 		que.add(root);
 		TreeNode temp;
@@ -48,7 +48,7 @@ public class BinaryTreeRightSideView {
 		return res;
 	}
 
-	// ��������㷨����ܹ���¼��ǰ������أ�����������⣡����
+	// 深度优先算法如何能够记录当前的深度呢？待解决的问题！！！
 	public static List<Integer> rightSideView1(TreeNode root) {
 		List<Integer> res = new ArrayList<Integer>();
 		if (root == null)

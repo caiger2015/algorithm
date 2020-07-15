@@ -23,26 +23,26 @@ public class InsertionSortList {
 		tail.next = null;
 		while (insertNode != null) {
 			ListNode cur = head, pre = null;
-			// �ҵ������λ��
+			// 找到插入的位置
 			while (cur != null && insertNode.val >= cur.val) {
 				pre = cur;
 				cur = cur.next;
 			}
-			// ������β����β����nextΪnull
+			// 插入在尾部，尾结点的next为null
 			if (cur == null) {
 				tail.next = insertNode;
 				tail = insertNode;
 				insertNode = insertNode.next;
 				tail.next = null;
 			}
-			// ������ͷ��
+			// 插入在头部
 			else if (pre == null) {
 				ListNode temp = insertNode.next;
 				insertNode.next = head;
 				head = insertNode;
 				insertNode = temp;
 			}
-			// �������м�
+			// 插入在中间
 			else {
 				ListNode temp = insertNode.next;
 				pre.next = insertNode;

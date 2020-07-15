@@ -18,12 +18,12 @@ public class PathSum {
 	public static void main(String[] args) {
 
 	}
-	//�õݹ�ķ�ʽ���Ҫ������ݹ麯���Ĳ����ͷ���ֵ�����׵ݹ�����壡
-	//������ݹ����ֹ������������ʽ��
+	//用递归的方式求解要想清楚递归函数的参数和返回值，明白递归的意义！
+	//想清楚递归的终止条件，迭代公式。
 	public boolean hasPathSum(TreeNode root, int sum) {
 		if (root == null)
 			return false;
-		// ��Ϊ���ж���Ҷ�ӽ���·��������Ҫ�ڵݹ鿪ʼʱ�ж���ǰ����Ƿ���Ҷ�ӽ��
+		// 因为是判定到叶子结点的路径，所以要在递归开始时判定当前结点是否是叶子结点
 		if (root.left == null && root.right == null)
 			return root.val == sum ? true : false;
 		return hasPathSum(root.left, sum - root.val)

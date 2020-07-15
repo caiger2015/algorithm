@@ -30,21 +30,21 @@ public class WordPattern {
 				word.append(s.charAt(j++));
 			}
 			if (!map.containsKey(a)) {
-				//��Ӧ��ϵҪ��һ��һ��������û��key�ǲ�����value
+				//对应关系要求一对一，反过来没有key是不能有value
 				if (map.containsValue(word.toString())) {
 					return false;
 				} else {
 					map.put(a, word.toString());
 				}
 			} else {
-				//�Ƚ��ַ����Ƿ������String��equals������StringBuffer��equals�����Ǽ̳���object�ķ������ȼ��ڡ�==��
+				//比较字符串是否相等用String的equals方法，StringBuffer的equals方法是继承自object的方法，等价于“==”
 				if (!map.get(a).equals(word.toString())) {
 					return false;
 				}
 			}
 			i++;j++;
 		}
-		//s�����һ�����ǿո���������ѭ��ʱj=m+1��i=n
+		//s的最后一个不是空格，所以跳出循环时j=m+1，i=n
 		return i == n && j == m+1 ? true : false;
 	}
 }

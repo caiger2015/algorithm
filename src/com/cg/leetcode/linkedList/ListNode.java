@@ -16,7 +16,7 @@ public class ListNode {
 
 	/**
 	 * @param s
-	 *            �����ַ�����������
+	 *            利用字符串构造链表
 	 */
 	public ListNode(String s) {
 		if (s == null || s.length() == 0)
@@ -32,7 +32,7 @@ public class ListNode {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see java.lang.Object#toString() �����Ըýڵ�Ϊͷ�����������
+	 * @see java.lang.Object#toString() 便利以该节点为头结点的链表并输出
 	 */
 	@Override
 	public String toString() {

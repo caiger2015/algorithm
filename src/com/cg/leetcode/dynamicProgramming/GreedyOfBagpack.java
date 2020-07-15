@@ -1,5 +1,5 @@
 /**
- * ����̰�ķ�:����λ������ֵr[i]  =  v[i] / w[i]��������
+ * 背包贪心法:按单位重量价值r[i]  =  v[i] / w[i]降序排列
  * 
  * @author caiger
  * 
@@ -12,28 +12,28 @@ import java.util.Scanner;
 public class GreedyOfBagpack {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println("Please enter the number of objects(��������Ʒ��������):");
+		System.out.println("Please enter the number of objects(请输入物品的数量：):");
 		int n = in.nextInt();
-		int[] w = new int[n]; // ��Ʒ��������
-		int[] v = new int[n]; // ��Ʒ��Ǯ����
+		int[] w = new int[n]; // 物品重量数组
+		int[] v = new int[n]; // 物品价钱数组
 		System.out
-				.println("Now, please enter the weight of these objects(������������Щ��Ʒ��������)");
+				.println("Now, please enter the weight of these objects(现在请输入这些物品的重量：)");
 		for (int i = 0; i < n; i++) {
 			w[i] = in.nextInt();
 		}
 		System.out
-				.println("Now, please enter the value of these objects(������������Щ��Ʒ�ļ�ֵ��)");
+				.println("Now, please enter the value of these objects(现在请输入这些物品的价值：)");
 		for (int i = 0; i < n; i++) {
 			v[i] = in.nextInt();
 		}
 		System.out
-				.println("Now, please enter the capacity of the pack(���������뱳����������)");
+				.println("Now, please enter the capacity of the pack(现在请输入背包的容量：)");
 		int c = in.nextInt();
 		in.close();
 		/**
-		 * ����λ������ֵr[i] = v[i] / w[i]��������
+		 * 按单位重量价值r[i] = v[i] / w[i]降序排列
 		 * 
-		 * ps:�����õ���ѡ������������鿴ѡ������
+		 * ps:排序用到了选择排序，详情请查看选择排序
 		 */
 		double startTime = System.currentTimeMillis();
 		double[] r = new double[n];
@@ -56,7 +56,7 @@ public class GreedyOfBagpack {
 			}
 		}
 		/**
-		 * �����������ͼ�ֵ�ֱ�浽w1[]��v1[]��
+		 * 排序后的重量和价值分别存到w1[]和v1[]中
 		 */
 		int[] w1 = new int[n];
 		int[] v1 = new int[n];
@@ -65,14 +65,14 @@ public class GreedyOfBagpack {
 			v1[i] = v[index[i]];
 		}
 		/**
-		 * ��ʼ��������x[n]
+		 * 初始化解向量x[n]
 		 */
 		int[] x = new int[n];
 		for (int i = 0; i < n; i++) {
 			x[i] = 0;
 		}
 		/**
-		 * ��Ⲣ��ӡ������
+		 * 求解并打印解向量
 		 */
 		for (int i = 0; i < n; i++) {
 			if (w1[i] < c) {
@@ -81,9 +81,9 @@ public class GreedyOfBagpack {
 			}
 		}
 		System.out
-				.println("The solution vector is(�������ǣ�)" + Arrays.toString(x));
+				.println("The solution vector is(解向量是：)" + Arrays.toString(x));
 		/**
-		 * ���ݽ�������������д����Ʒ������ֵ����ӡ
+		 * 根据解向量求出背包中存放物品的最大价值并打印
 		 */
 		int maxValue = 0;
 		for (int i = 0; i < n; i++) {
@@ -92,9 +92,9 @@ public class GreedyOfBagpack {
 		}
 		double endTime = System.currentTimeMillis();
 		System.out
-				.println("Now, the largest values of objects in the pack is(��������Ʒ������ֵΪ��)"
+				.println("Now, the largest values of objects in the pack is(背包中物品的最大价值为：)"
 						+ maxValue);
-		System.out.println("Basic Statements take(���������ʱ)"
+		System.out.println("Basic Statements take(基本语句用时)"
 				+ (endTime - startTime) + " milliseconds!");
 	}
 }

@@ -24,17 +24,17 @@ public class ValidateBinarySearchTree {
 		System.out.print(isValidBST1(ConstructTree.constructTree("5382469")));
 	}
 
-	// ����Сintʱȡ�ȵ����Ҫ��������
+	// 用最小int时取等的情况要单独考虑
 	// private static int temp = Integer.MIN_VALUE;
-	// ��Integer��װint����ʼ���Ϊ�տ��Ե����ж�
+	// 用Integer包装int，初始情况为空可以单独判断
 	private static Integer temp = null;
 
 	public static boolean isValidBST(TreeNode root) {
 		if (root == null)
 			return true;
 		/*
-		 * BST����������Ϊ���򣬰�������ṹ����BST�Ƚϵ�ǰ������һ��������Ĵ�С��
-		 * ����һ���ⲿ�������洢��һ�����ֵ���ڵݹ�ʱ��������������ɡ��õ��������ĸ��´�����ѭ�������ж�ջ�����ã���ʡ�˿ռ䣬ȱ����Ҫ�õ��ⲿ����
+		 * BST中序遍历结果为升序，按照中序结构遍历BST比较当前结点和上一个输出结点的大小，
+		 * 利用一个外部变量来存储上一个结点值，在递归时更新这个变量即可。用单个变量的更新代替了循环方法中堆栈的作用，节省了空间，缺点是要用到外部变量
 		 */
 		boolean left = isValidBST(root.left);
 		if (temp == null || root.val > temp)
@@ -46,7 +46,7 @@ public class ValidateBinarySearchTree {
 	}
 
 	/*
-	 * ѭ����ʽ�������BST����¼��һ����ջ���ֵΪmin���Ƚ��뵱ǰ��ջ���Ĵ�С
+	 * 循环方式中序遍历BST，记录上一个出栈结点值为min，比较与当前出栈结点的大小
 	 */
 	public static boolean isValidBST1(TreeNode root) {
 		if (root == null)

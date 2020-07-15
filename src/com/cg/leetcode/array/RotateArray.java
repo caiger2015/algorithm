@@ -14,8 +14,8 @@ public class RotateArray {
 	}
 
 	/*
-	 * �ֲ��跭ת����һ����ת�������飬�ڶ����ֱ�ת���������飬 ���Ƶ����ӣ�rotate bits����תһ��2^nλ�������б���λ��
-	 * ���ַ������ÿ���Խ�磬������λ>>>,<<<,&ĳ����ȡλ�ķ�����
+	 * 分步骤翻转：第一步翻转整个数组，第二部分别翻转两个子数组， 类似的例子：rotate bits，翻转一个2^n位数的所有比特位，
+	 * 这种方法不用考虑越界，采用移位>>>,<<<,&某个数取位的方法。
 	 */
 	public void rotate(int[] nums, int k) {
 		int n = nums.length;
@@ -39,12 +39,12 @@ public class RotateArray {
 	}
 
 	/*
-	 * �ӽ����������i��Ԫ�ص�����λ���ǣ�i+k��%n�� ����ֻҪ������ÿ��Ԫ��ȷ��λ�ü���
+	 * 从结果来看，第i个元素的最终位置是（i+k）%n） 所以只要遍历完每个元素确定位置即可
 	 */
 	public static void rotate3(int[] nums, int k) {
 		int n = nums.length;
 		/*
-		 * �����ǣ������ж����������null,0,Integer.MINVALUE��
+		 * 别忘记！！！判断特殊情况，null,0,Integer.MINVALUE等
 		 */
 		if (nums == null || k <= 0 || n <= 0)
 			return;
@@ -52,7 +52,7 @@ public class RotateArray {
 		k %= n;
 		int next = start;
 		/*
-		 * ����һ�Σ��������ǣ�next+k��%n ���Ϊk������ �ӵ�һ����start��ʼ ���������Ȼ��ص�start
+		 * 遍历一次，经过的是（next+k）%n 间隔为k的数， 从第一个数start开始 ，遍历完必然会回到start
 		 */
 		int temp = nums[start];
 		for (int i = 0; i < n; i++) {
@@ -62,14 +62,14 @@ public class RotateArray {
 			temp = temp2;
 			if (start == next) {
 				start++;
-				next = start % n;// ��ҪԽ��
+				next = start % n;// 不要越界
 				temp = nums[next];
 			}
 		}
 	}
 
 	/*
-	 * �ռ临�Ӷ�O��n��
+	 * 空间复杂度O（n）
 	 */
 	public void rotate2(int[] nums, int k) {
 		int n = nums.length;
@@ -86,7 +86,7 @@ public class RotateArray {
 	}
 
 	/*
-	 * �ƶ�����̫�࣬ʱ�临�Ӷ�̫����O��k*n��
+	 * 移动次数太多，时间复杂度太大了O（k*n）
 	 */
 	public static void rotate1(int[] nums, int k) {
 		k %= nums.length;

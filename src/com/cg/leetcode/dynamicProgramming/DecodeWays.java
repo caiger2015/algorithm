@@ -8,12 +8,12 @@ public class DecodeWays {
 	}
 
 	/*
-	 * ��������ƹ�ʽ�������ж�!��Ҫע���ʼ������ȷ�����������ƣ�
+	 * 搞清楚递推公式的条件判定!还要注意初始条件的确定，用来递推！
 	 */
 	public static int decodeWays(String s) {
 		if (s == null || s.length() == 0)
 			return 0;
-		// ��һ�����ֲ���Ϊ0�������޷�decode
+		// 第一个数字不能为0，否则无法decode
 		if (s.charAt(0) == '0')
 			return 0;
 		int n = s.length();
@@ -24,16 +24,16 @@ public class DecodeWays {
 			int pre = s.charAt(i - 2) - '0';
 			int cur = s.charAt(i - 1) - '0';
 			int temp = pre * 10 + cur;
-			// �жϵ�ǰ�����Ƿ����decode�� != 0����������ԣ���res[i]����Ϊres[i-1];
+			// 判断当前数字是否可以decode（ != 0），如果可以，则res[i]至少为res[i-1];
 			if (cur != 0)
 				res[i] = res[i - 1];
-			// �жϵ�ǰ�����Ƿ���Ժ�ǰһ������decode(ǰһ������>0,����Ϻ�<27),���������res[i] += res[i-1];
+			// 判断当前数字是否可以和前一个数字decode(前一个数字>0,且组合后<27),如果可以则res[i] += res[i-1];
 			if (pre != 0) {
 				if (temp > 0 && temp < 27)
 					res[i] += res[i - 2];
 			}
-			// ���pre��cur��Ϊ0����ôres[i] = 0,���´�ѭ���У���Ӧ��res[i-1] == 0����pre ==
-			// 0��res[i] = 0,���ε���ֱ�����ȫΪ0
+			// 如果pre和cur都为0，那么res[i] = 0,在下次循环中，对应的res[i-1] == 0，且pre ==
+			// 0，res[i] = 0,依次递推直到最后全为0
 		}
 		return res[n];
 	}

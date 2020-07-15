@@ -20,11 +20,11 @@ public class LongestCommonPrefix {
 		StringBuilder res = new StringBuilder();
 		// res.append(strs[0].charAt(0));
 		for (int j = 0; j < n; j++) {
-			// �����������res��ÿ���ж�res�Ƿ��֮ǰ����Ч�����ж��ɹ�һλ֮���а�����j<n���ж�
+			// 放在这里更新res，每次判定res是否最长之前，等效于在判定成功一位之后，切包含了j<n的判定
 			res.append(strs[0].charAt(j));
 			for (int k = 0; k < strs.length; k++) {
 				if (res.charAt(j) != strs[k].charAt(j)) {
-					// ɾ�����һλ������res�й�ͬ��prefix
+					// 删除最后一位，返回res中共同的prefix
 					return res.deleteCharAt(j).toString();
 				}
 			}

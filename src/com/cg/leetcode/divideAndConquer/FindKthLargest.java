@@ -10,11 +10,11 @@ public class FindKthLargest {
 	public static int findKthLargest(int[] nums, int k) {
 		int begin = 0;
 		int end = nums.length - 1;
-		// ��ʼ��Ϊ0ʱ����k == 1ʱ������ѭ�����ش���Ľ����
-		// Ӧ����index��ʼ��Ϊһ��k-1����ȡ����ֵ��-1����֤ѭ���ĵ�һ�ν���
-		// ����ʹ��do while
+		// 初始化为0时，当k == 1时会跳过循环返回错误的结果，
+		// 应当把index初始化为一个k-1不会取到的值如-1，保证循环的第一次进行
+		// 或者使用do while
 		int index = 0;
-		// ��k����������Ӵ�С�����±���k-1
+		// 第k个大的数，从大到小排列下标是k-1
 		do {
 			index = partition(nums, begin, end);
 			if (index < k - 1)

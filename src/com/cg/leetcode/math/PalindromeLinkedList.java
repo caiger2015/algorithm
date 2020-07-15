@@ -21,7 +21,7 @@ public class PalindromeLinkedList {
 		if (x == 0)
 			return true;
 		int temp = x, len = 1;
-		// ȡ�ȣ�lenΪpow(10��x��λ��-1)
+		// 取等，len为pow(10，x的位数-1)
 		while (temp >= 10) {
 			len *= 10;
 			temp /= 10;

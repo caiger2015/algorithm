@@ -13,8 +13,8 @@ public class TwoSum {
 	public static int[] twoSum(int[] nums, int target) {
 		Map<Integer, Integer> table = new HashMap<Integer, Integer>();
 		int[] res = new int[2];
-		// ��������е������ȷ���hashmap����Ļ����ڲ���һ������������ǣ�������Ҳ�ڲ��ҷ�Χ�ڣ�
-		// ���磬6-3 = 3����ʱ����ҵ�3
+		// 如果把所有的数都先放在hashmap里面的话，在查找一个数的相加数是，塔本身也在查找范围内，
+		// 例如，6-3 = 3，此时会查找到3
 		// for(int i = 0;i<nums.length;i++){
 		// table.put(nums[i],i+1);
 		// }

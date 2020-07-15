@@ -15,7 +15,7 @@ public class Isomorphic {
 	}
 
 	/*
-	 * ����hashtable����ֵ��ϵΪs��t�ж�λԪ�صĶ�Ӧ��ϵ����s�е�Ԫ����sTable�Ľ���tTable��ֵ
+	 * 构造hashtable，键值关系为s与t中对位元素的对应关系，即s中的元素是sTable的健，tTable的值
 	 */
 	public static boolean isIsormophic(String s, String t) {
 		if (s == null && t == null || s.length() == 0 && t.length() == 0)
@@ -45,8 +45,8 @@ public class Isomorphic {
 		return true;
 	}
 
-	// �������ÿ�δ���������һ����ӦԪ�ص�λ�ã����жϵ�129��Ԫ�ص�ʱ����������⣡��
-	// �����еķ������Ͳ����ǻ������ͣ����ڻ�������Ҫʹ�ð�װ�࣬�ڱȽϵ�ʱ��Ӧ����equals��������������
+	// 这个方法每次存贮的是上一个对应元素的位置，在判断第129个元素的时候出现了问题！！
+	// 集合中的泛型类型不能是基本类型，对于基本类型要使用包装类，在比较的时候应该用equals方法！！！！！
 	public static boolean isIsormophic1(String s, String t) {
 		if (s == null && t == null || s.length() == 0 && t.length() == 0)
 			return true;
@@ -58,8 +58,8 @@ public class Isomorphic {
 			int sc = s.charAt(i);
 			int tc = t.charAt(i);
 			if (sTable.containsKey(sc) && tTable.containsKey(tc)) {
-				// ����get�������ص���Integer���͵Ķ��󣬱Ƚϵ�ʱ��Ӧ����equals����������
-				// �� == ���Ƚϵ����Ƿ������ͬ�ĵ�ַ,��������ͬ�����ã�
+				// 这里get方法返回的是Integer类型的对象，比较的时候应该用equals方法！！！
+				// “ == ”比较的是是否具有相同的地址,即具有相同的引用！
 				// if(sTable.get(sc). == tTable.get(tc)){
 				if (sTable.get(sc).equals(tTable.get(tc))) {
 					sTable.put(sc, i);

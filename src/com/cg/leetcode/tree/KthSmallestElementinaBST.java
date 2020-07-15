@@ -7,13 +7,13 @@ import java.util.LinkedList;
  * @author caiger Given a binary search tree, write a function kthSmallest to
  *         find the kth smallest element in it.
  * 
- *         Note: You may assume k is always valid, 1 �� k �� BST's total elements.
+ *         Note: You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
  * 
  *         Follow up: What if the BST is modified (insert/delete operations)
  *         often and you need to find the kth smallest frequently? How would you
  *         optimize the kthSmallest routine?
- *         O(h)��ʽ���㷨���ڽ���м���һ�����ԣ���ʾ�ýڵ���������Ľڵ���m����m>k��kth�������������
- *         ��m-1<k��kth���������������m-1=k��ýڵ�Ϊkth��㡣
+ *         O(h)方式的算法：在结点中加入一个属性，表示该节点的左子树的节点数m：若m>k则kth结点在左子树，
+ *         若m-1<k则kth结点在右子树，若m-1=k则该节点为kth结点。
  */
 public class KthSmallestElementinaBST {
 

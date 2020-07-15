@@ -20,7 +20,7 @@ public class PalindromeLinkedList {
 		if (head == null || head.next == null)
 			return true;
 		ListNode quick = head, slow = head;
-		// ���ÿ���ָ�����һ������ѭ����ֹʱslow�ں�벿������ĵ�һ����
+		// 利用快慢指针遍历一遍链表，循环终止时slow在后半部分链表的第一个。
 		while (quick != null) {
 			slow = slow.next;
 			quick = quick.next;
@@ -28,7 +28,7 @@ public class PalindromeLinkedList {
 				break;
 			quick = quick.next;
 		}
-		// ��ת��벿������
+		// 翻转后半部分链表
 		ListNode pre = null, cur = slow;
 		while (cur != null) {
 			ListNode temp = cur.next;
@@ -36,7 +36,7 @@ public class PalindromeLinkedList {
 			pre = cur;
 			cur = temp;
 		}
-		// �Ƚ����������Ƿ񹹳ɻ��Ľṹ
+		// 比较两段链表是否构成回文结构
 		ListNode p = pre, q = head;
 		while (p != null && q != null) {
 			if (p.val != q.val)
@@ -44,7 +44,7 @@ public class PalindromeLinkedList {
 			p = p.next;
 			q = q.next;
 		}
-		// �ع���ԭ��������ṹ
+		// 重构回原来的链表结构
 		ListNode pre2 = null;
 		while (pre != null) {
 			ListNode temp = pre.next;

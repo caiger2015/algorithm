@@ -25,7 +25,7 @@ public class ThreeSumClosest {
 	public static int threeSumClosest(int[] nums, int target) {
 		int len = nums.length;
 		Arrays.sort(nums);
-		// �������Ƶ�һ�ζ�res��ֵ
+		// 用来控制第一次对res赋值
 		int min = Integer.MAX_VALUE;
 		int res = 0;
 		for (int i = 0; i < len; i++) {

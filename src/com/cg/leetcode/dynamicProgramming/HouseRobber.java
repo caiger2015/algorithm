@@ -1,8 +1,8 @@
 package com.cg.leetcode.dynamicProgramming;
 
 /*
- * ��̬�滮���⣬ת��Ϊ���ɸ����Ƶ������⣬
- * �ҳ����ƹ�ʽ��ȷ����ʼ���������˳����׶εĽ��ֱ�����
+ * 动态规划问题，转化为若干个递推的子问题，
+ * 找出递推公式，确定初始条件，逐步退出各阶段的结果直到最后
  */
 public class HouseRobber {
 
@@ -14,8 +14,8 @@ public class HouseRobber {
 	public static int rob(int[] num) {
 		int len = num.length;
 		int[] res = new int[len];
-		// ���ֳ���Ϊ�㣬��һ���������Ԫ�صĶ��󣬷���ʱ����Ҫ�ж�
-		// int[] A = null; ��ʾA������Ϊ�գ�����ʱҪ�ж��Ƿ�Ϊ��
+		// 数字长度为零，是一个包含零个元素的对象，返回时不需要判断
+		// int[] A = null; 表示A的引用为空，返回时要判断是否为空
 		if (len == 0)
 			return 0;
 		if (len == 1)

@@ -27,7 +27,7 @@ public class InorderTraversal {
 		preOrder(p.right, res);
 	}
 
-	// ѭ��ʵ��
+	// 循环实现
 	public List<Integer> inorder_Traversal(TreeNode root) {
 		List<Integer> res = new ArrayList<Integer>();
 		if (root == null)

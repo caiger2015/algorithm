@@ -17,7 +17,7 @@ class Solution {
 	private Stack<Character> stack = new Stack<Character>();
 	private StringBuffer result;
 
-	// ��ջ����̫�����ӣ�ջ�������������ȼ���
+	// 用栈处理太过复杂，栈是用来控制优先级的
 	public int reverse(int x) {
 
 		String str = Integer.toString(x);
@@ -30,12 +30,12 @@ class Solution {
 			sim = 1;
 			i++;
 		}
-		// �����������Ϊelse��Ӧ������һ��if�����������һ����������
-		// ���sim���¸�ֵ
+		// 这里出过错，因为else对应的是上一个if，所以如果上一条不成立，
+		// 会对sim重新赋值
 		// else {
 		// sim = 1;
 		// }
-		// StringBufferʹ��ʱҪ��ʼ����С
+		// StringBuffer使用时要初始化大小
 		result = new StringBuffer(str.length() - i);
 		for (; i < str.length(); i++) {
 			stack.push(str.charAt(i));
@@ -48,7 +48,7 @@ class Solution {
 		return (int) db * sim;
 	}
 
-	// ת����StringBuffer������������Դ̫��
+	// 转换成StringBuffer来处理消耗资源太多
 	public int reverse2(int x) {
 		int sim = 0;
 		if (x < 0)
@@ -56,12 +56,12 @@ class Solution {
 		else
 			sim = 1;
 		// double result = x*sim;
-		// ����double��˫���ȸ�������ת����String��"xxx.0"
-		// ����reverse����֮���ǡ�0.xxx��
-		long result = (long) x * sim;// ��Ҫ��ʾת���������ǻ����
+		// 这里double是双进度浮点数，转换成String是"xxx.0"
+		// 所以reverse（）之后是“0.xxx”
+		long result = (long) x * sim;// 需要显示转换，否则还是会溢出
 		StringBuffer str = new StringBuffer(result + "");
 		// StringBuffer str = new StringBuffer(x*sim+"");
-		// tip����x = int��Сֵʱ�����ľ���ֵ��int���ֵ+1������ˣ�
+		// tip：当x = int最小值时，它的绝对值是int最大值+1，溢出了！
 		StringBuffer str1 = str.reverse();
 		result = Long.valueOf(str1.toString());
 		if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE)
@@ -70,17 +70,17 @@ class Solution {
 
 	}
 
-	// ��������ѧ������������Ϊ���ֱ����������ģ�
-	// ����ֻ��Ҫ���Ǻ÷��ź��������Ϳ�����
-	// ��ѭ�����������
+	// 考虑用数学方法来处理，因为数字本身就是排序的，
+	// 所以只需要考虑好符号和溢出问题就可以了
+	// 用循环来解决问题
 	public int reverse3(int x) {
 		long res = 0;
 		if (x == Integer.MIN_VALUE)
 			return 0;
 		int temp = Math.abs(x);
 		while (temp > 0) {
-			res = res * 10 + temp % 10;// ȡ�෽ʽȡ���һλ
-			temp /= 10;// ��ȥ���һλ
+			res = res * 10 + temp % 10;// 取余方式取最后一位
+			temp /= 10;// 舍去最后一位
 		}
 		if (res > Integer.MAX_VALUE)
 			return 0;

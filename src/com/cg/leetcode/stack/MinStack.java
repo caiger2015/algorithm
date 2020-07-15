@@ -7,14 +7,14 @@ class MinStack {
 	Stack<Integer> minStack = new Stack<Integer>();
 
 	public void push(int x) {
-		if (minStack.empty() || minStack.peek() >= x)// ȡ = ��Ϊ�˷�ֹ�ظ�
+		if (minStack.empty() || minStack.peek() >= x)// 取 = 是为了防止重复
 			minStack.push(x);
 		stack.push(x);
 	}
 
 	public void pop() {
-		// ������if(stack.peek().equals(minStack.peek()))
-		// peek()���ص���Integer����ֱ�ӱȽ��ǱȽ�����
+		// 或者用if(stack.peek().equals(minStack.peek()))
+		// peek()返回的是Integer对象，直接比较是比较引用
 		if (stack.peek().intValue() == minStack.peek().intValue())
 			minStack.pop();
 		stack.pop();
@@ -29,7 +29,7 @@ class MinStack {
 	}
 }
 /*
- * ˼·���� class MinStack { private Node<Integer> top; public MinStack(){ this.top
+ * 思路错误 class MinStack { private Node<Integer> top; public MinStack(){ this.top
  * = null; } public void push(int x) { top = new Node<Integer>(new
  * Integer(x),top); }
  * 

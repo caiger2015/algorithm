@@ -19,9 +19,9 @@ public class SummaryRanges {
 		if (nums == null || nums.length == 0)
 			return res;
 		int i = 0;
-		// Tips��ѭ��Ҫ����һ�����������ֻ���ǳ�ʼ�����
-		// ���ѭ������ÿ�δ洢���
-		// �ڲ�ѭ������ÿ�ν��
+		// Tips：循环要考虑一般情况，不能只考虑初始情况！
+		// 外层循环控制每次存储结果
+		// 内层循环构造每次结果
 		while (i < nums.length) {
 			StringBuilder s = new StringBuilder();
 			int start = nums[i++];

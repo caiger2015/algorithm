@@ -19,18 +19,18 @@ class Solution3 {
 		StringBuffer result = new StringBuffer(len3 + 1);
 		Character temp = '0';
 		int j = 1;
-		for (; j <= (len1 > len2 ? len2 : len1); j++)// ?:��Ŀ�����
+		for (; j <= (len1 > len2 ? len2 : len1); j++)// ?:三目运算符
 		{
 			Character aa = a.charAt(len1 - j);
 			Character bb = b.charAt(len2 - j);
-			switch (aa + bb + temp)// Character���� + - > < +
-									// ���㣬ת����int���͵�assc�룬0��Ӧ48��
+			switch (aa + bb + temp)// Character类型 + - > < +
+									// 运算，转换成int类型的assc码，0对应48，
 			{
 			case 147:
-				// str = '1'+str����ʽ������ǰ����ӣ����÷�ת
+				// str = '1'+str的形式可以在前边添加，不用翻转
 				result.append('1');
 				temp = '1';
-				continue;// continue �������ڵ�for��break����switch����ִ��
+				continue;// continue 到达最内的for，break跳出switch继续执行
 			case 146:
 				result.append('0');
 				temp = '1';
@@ -50,7 +50,7 @@ class Solution3 {
 			case 96:
 				result.append('0');
 				temp = '0';
-				break;// ʹ��whileʱ�������ÿһ��case����break����continue����
+				break;// 使用while时，必须对每一个case设有break或者continue！！
 			case 97:
 				result.append('1');
 				temp = '0';
@@ -83,8 +83,8 @@ class Solution3 {
 		if (temp == '1')
 			result.append('1');
 		return result.reverse().toString();
-		// StringBuffer.reverse()��ת�ַ������Կ��ŵĲ��ֲ����ǣ�
-		// �����СΪ3��StringBuffer,���롮1������ת���ǡ�1��
+		// StringBuffer.reverse()翻转字符串，对空着的部分不考虑，
+		// 例如大小为3的StringBuffer,存入‘1’，翻转后还是‘1’
 	}
 
 }

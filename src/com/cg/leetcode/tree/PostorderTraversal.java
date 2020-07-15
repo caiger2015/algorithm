@@ -30,9 +30,9 @@ public class PostorderTraversal {
 
 	/**
 	 * @param root
-	 *            �����Ķ����������
+	 *            遍历的二叉树根结点
 	 * @param res
-	 *            Ҫ���ص�list
+	 *            要返回的list
 	 */
 	private void postorderTraversal(TreeNode root, List<Integer> res) {
 		if (root == null)
@@ -43,12 +43,12 @@ public class PostorderTraversal {
 	}
 
 	/*
-	 * ѭ��ʵ�֣�����stack����������res��˳��ÿ����㶼����ջ��Ҫ���ǵ��Ǻ�ʱ��ջ����res������������ջ���������ж�
+	 * 循环实现：利用stack来调整进入res的顺序，每个结点都是入栈，要考虑的是何时出栈进入res的条件，即对栈顶结点进行判定
 	 * 
-	 * @param pre����һ����ջ����res�Ľ��
+	 * @param pre：上一个出栈进入res的结点
 	 * 
-	 * @param cur����ǰջ���Ľ�� ����res��������1.��ǰջ��������ҽ�㶼Ϊnull�� 2.��ǰջ���������ҽ�㶼�Ѿ�����res
-	 * ���򣺽���ǰջ�������ҡ����ӽ����ջ
+	 * @param cur：当前栈顶的结点 进入res的条件：1.当前栈顶结点左右结点都为null； 2.当前栈顶结点的左右结点都已经进入res
+	 * 否则：将当前栈顶结点的右、左孩子结点入栈
 	 */
 	public List<Integer> postorder_Traversal(TreeNode root) {
 		List<Integer> res = new ArrayList<Integer>();

@@ -17,7 +17,7 @@ public class LinkedListCycle {
 	}
 
 	/**
-	 * ����ָ�룬�л��������
+	 * 快慢指针，有环则会相遇
 	 * 
 	 * @param head
 	 * @return

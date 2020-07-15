@@ -8,7 +8,7 @@ public class MinimumDepthofBinaryTree {
 		System.out.print(root + "   " + minDepth2(root));
 	}
 
-	// �����ȣ�Ҷ�ӽ�㵽���������·���ĳ���
+	// 最低深度：叶子结点到根结点的最短路径的长度
 	public int minDepth(TreeNode root) {
 		if (root == null)
 			return 0;
@@ -21,7 +21,7 @@ public class MinimumDepthofBinaryTree {
 		else
 			return 1 + minDepth(root.left);
 	}
-	//�߼��жϸĽ�
+	//逻辑判断改进
 	public static int minDepth2(TreeNode root) {
 		if (root == null)
 			return 0;

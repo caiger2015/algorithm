@@ -1,9 +1,9 @@
 /**
- * �ҳ�һ�����е�����һ����˼·��
- * ͳ��������32λÿһλ��1�ĸ����ܺͣ�����һ��32��С�����飬
- * ��K���������Ĵ�����ȡģ������Ϊ1��λ��Ӧ��������һ������
- * ���ת��Ϊint
- * tips:��bitλ�Ĳ���Ӧ��������Сint���������
+ * 找出一组数中单独的一个，思路：
+ * 统计所有数32位每一位上1的个数总和，存入一个32大小的数组，
+ * 对K（其他数的次数）取模，所有为1的位对应单独的那一个数，
+ * 最后转化为int
+ * tips:对bit位的操作应当考虑最小int的溢出问题
  */
 package com.cg.leetcode.bitManipulation;
 
@@ -21,10 +21,10 @@ public class SingleNumber2 {
 
 class Solution2 {
 	public int singleNumber(int[] A) {
-		int[] flag = new int[32];// �洢ÿ��bit
-									// ���һλΪ1ʱ��ʾ��Сint -2147483648
+		int[] flag = new int[32];// 存储每个bit
+									// 最后一位为1时表示最小int -2147483648
 		int result = 0;
-		int sim = 0;// �洢����
+		int sim = 0;// 存储符号
 		for (int i = 0; i < A.length; i++) {
 			int temp = A[i];
 			if (temp < 0)

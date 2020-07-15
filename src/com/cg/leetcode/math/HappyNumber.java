@@ -14,7 +14,7 @@ public class HappyNumber {
 		while (set.add(n)) {
 			int temp = n, res = 0;
 			while (temp > 0) {
-				// �����ȥ����λĩλ��
+				// 这个是去比特位末位的
 				// res += (temp&1)*(temp&1);
 				res += (temp % 10) * (temp % 10);
 				temp /= 10;

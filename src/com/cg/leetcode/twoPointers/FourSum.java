@@ -36,12 +36,12 @@ public class FourSum {
 						temp.add(nums[j]);
 						temp.add(nums[k]);
 						temp.add(nums[l]);
-						// ����hashset�ж�ÿ�����Ƿ���ͬ
+						// 利用hashset判断每组结果是否相同
 						if (!set.contains(temp)) {
 							set.add(temp);
 							res.add(temp);
 						}
-						// ��������ͬ����
+						// 不能有相同的组
 						k++;
 						l--;
 					} else if (sum < target)

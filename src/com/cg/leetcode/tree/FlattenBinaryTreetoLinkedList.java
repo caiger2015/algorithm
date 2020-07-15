@@ -34,9 +34,9 @@ public class FlattenBinaryTreetoLinkedList {
 
 	}
 	/*
-	 * �ȴ洢����ı䣡
-	 * flatten֮���˳�������������˳�򣬵����ڵݹ��ͬʱ��ı����Ľṹ������Ҫ�����ҽ���λ�ã�
-	 * �������ʱ���ҽ��ŵ������������ұߵ��Ǹ��ڵ���ҽ��
+	 * 先存储，后改变！
+	 * flatten之后的顺序是先序遍历的顺序，但是在递归的同时会改变树的结构，所以要处理右结点的位置，
+	 * 先序遍历时，右结点放到在左子树最右边的那个节点的右结点
 	 */
 	public static void flattenTreeToLinkedList(TreeNode root){
 		if(root == null)
@@ -46,7 +46,7 @@ public class FlattenBinaryTreetoLinkedList {
 			root.right = root.left;
 			TreeNode mostRight = root.left;
 			root.left = null;
-			//�ҵ����������ұߵĽ�㣬��Ϊ�Һ��ӽ����linkedlist�е�ǰһ���ڵ�
+			//找到左子树最右边的结点，即为右孩子结点在linkedlist中的前一个节点
 			while(mostRight.right != null||mostRight.left != null){
 				if(mostRight.right != null)
 					mostRight = mostRight.right;

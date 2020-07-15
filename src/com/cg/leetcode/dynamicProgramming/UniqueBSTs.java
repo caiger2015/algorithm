@@ -10,14 +10,14 @@ public class UniqueBSTs {
 	}
 
 	/*
-	 * �Ӹ��ڵ����ֿ��ǣ�����С��ֻ�����������������������
+	 * 从根节点入手考虑，比它小的只能在左子树，大的在右子树
 	 * 
-	 * @param res[n]���洢���
+	 * @param res[n]，存储结果
 	 */
 	public static int numTrees(int n) {
 		int i = 0;
 		int j = 0;
-		int[] res = new int[n + 1];// ��һλ�洢����Ϊ0�����
+		int[] res = new int[n + 1];// 多一位存储输入为0的情况
 		if (n == 0)
 			return 1;
 		res[0] = res[1] = 1;

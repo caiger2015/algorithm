@@ -19,12 +19,12 @@ public class CountCompleteTreeNode {
 	}
 
 	/**
-	 * description��������rootΪ������ȫ�������Ľ������ ������ȫ�����������ʣ�����������������1�������������������ͬ��
-	 * ��Ϊ�����������ڵ����Ϊ2^h-1,hΪ������������������ͬ����Զ������������������еݹ���㣬 �����Ϊ�������������֮�ͼ�1
+	 * description：计算以root为根的完全二叉树的结点树； 根据完全二叉树的性质：左右两侧结点树最多差1，如果左右两侧结点数相同，
+	 * 则为满二叉树，节点个数为2^h-1,h为层数，若两侧结点数不同，则对二叉树分左右子树进行递归计算， 结点树为左右子树结点树之和加1
 	 * 
 	 * @param root
-	 *            һ����ȫ�������ĸ����
-	 * @return �Ըý��Ϊ���Ķ������Ľ�����
+	 *            一棵完全二叉树的根结点
+	 * @return 以该结点为根的二叉树的结点个数
 	 */
 	public static int countNodes(TreeNode root) {
 		if (root == null)
@@ -40,7 +40,7 @@ public class CountCompleteTreeNode {
 			tempr = tempr.right;
 		}
 		if (left == right)
-			// ��pow�����ᳬʱ����Ϊ�Ƕ�2���������ݵĲ�������������λ���������棡��
+			// 用pow函数会超时，因为是对2的整数次幂的操作，可以用移位操作来代替！！
 			// return (int)Math.pow(2, left)-1;
 			return (1 << left) - 1;
 		return countNodes(root.left) + countNodes(root.right) + 1;

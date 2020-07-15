@@ -26,12 +26,12 @@ public class BinarySearchTreeIterator {
 
 	}
 
-	// �洢���е�ÿ���ڵ�
+	// 存储树中的每个节点
 	private List<Integer> valList = new LinkedList<Integer>();
 	private int index = 0;
 
-	// �������BST���Ϊ��������,���ռ临�Ӷ�ΪO(n)����Ϊ�洢�����еĽڵ㡣
-	// ��Ϊ�ڵ���next()��ʱ��Ѱ�ҵ�����һ���ڵ㣬����֮ǰ�Ľڵ����ɾ������Լ�ռ䡣
+	// 中序遍历BST结果为升序排列,但空间复杂度为O(n)，因为存储了所有的节点。
+	// 因为在调用next()的时候寻找的是下一个节点，所以之前的节点可以删除，节约空间。
 	public BinarySearchTreeIterator(TreeNode root) {
 		if (root == null)
 			return;
@@ -49,7 +49,7 @@ public class BinarySearchTreeIterator {
 	}
 
 	/** @return whether we have a next smallest number */
-	// ÿ�ε���hasNext����������һ����ָ������ƶ�һλ
+	// 每次调用hasNext，若还有下一个则指针向后移动一位
 	public boolean hasNext() {
 		if (index < valList.size()) {
 			index++;
@@ -59,7 +59,7 @@ public class BinarySearchTreeIterator {
 	}
 
 	/** @return the next smallest number */
-	// ���ص���ָ���ǰһ��Ԫ��
+	// 返回的是指针的前一个元素
 	public int next() {
 		return valList.get(index - 1);
 	}
@@ -67,10 +67,10 @@ public class BinarySearchTreeIterator {
 
 class BinarySearchTreeIterator2 {
 
-	// ÿ�θ���ջ��Ľڵ㣬��֤ջ���Ľ������һ��С�ģ���ʱ�ռ临�Ӷ�ΪO(h)
+	// 每次更新栈里的节点，保证栈顶的结点是下一个小的，此时空间复杂度为O(h)
 	private Deque<TreeNode> stack = new ArrayDeque<TreeNode>();
 	private TreeNode cur = null;
-	//��ʼ��ʱ��������ķ�ʽ����ڵ㵽ջ��ֱ����С�Ľڵ㣨����ˣ�����ջ������֤��ջ������ڵ�ʱ�Ǵ���С�Ŀ�ʼ�ġ�
+	//初始化时按照中序的方式放入节点到栈中直到最小的节点（最左端）到达栈顶，保证从栈里输出节点时是从最小的开始的。
 	public BinarySearchTreeIterator2(TreeNode root) {
 		cur = root;
 		while(cur != null){
@@ -80,14 +80,14 @@ class BinarySearchTreeIterator2 {
 	}
 
 	/** @return whether we have a next smallest number */
-	//���ջ��Ϊ�ձ�ʾ������һ��
+	//输出栈不为空表示还有下一个
 	public boolean hasNext() {
 		return !stack.isEmpty();
 	}
 
 	/** @return the next smallest number */
-	// ���ص���ָ���ǰһ��Ԫ��
-	//��ʵ���ǰ�һ�����������������ֿ��ˣ����ǽ�Լ�˿ռ�
+	// 返回的是指针的前一个元素
+	//其实就是把一次完整的中序遍历拆分开了，但是节约了空间
 	public int next() {
 		int res = 0;
 		if(!stack.isEmpty()){

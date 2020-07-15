@@ -24,7 +24,7 @@ public class TreeNode {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see java.lang.Object#toString() �á�#����ʾnull�������ӡ�Ըýڵ�Ϊ���ڵ�Ķ�����
+	 * @see java.lang.Object#toString() 用“#”表示null，按层打印以该节点为根节点的二叉树
 	 */
 	@Override
 	public String toString() {

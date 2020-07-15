@@ -26,20 +26,20 @@ public class ConstuctTreeFromPostorderAndInorderTranversal {
 	}
 
 	/**
-	 * description:���η������������������һ���Ǹ���㣬Ȼ���������������ҵ�����λ�ã�
-	 * ��������������ұ�����������ȷ�����Ⱥ��ں���������ȷ���������飬�ݹ鷽ʽȷ�����ҽ��
+	 * description:分治法处理，后序数组中最后一个是根结点，然后在中序数组中找到它的位置，
+	 * 左边是左子树，右边是右子树，确定长度后在后序数组中确定子树数组，递归方式确定左右结点
 	 * 
 	 * @param post
-	 *            ��������
+	 *            后序数组
 	 * @param i
-	 *            ��������ĩβ�ڵ㣬��Ϊ�����������
+	 *            后序子树末尾节点，即为该子树根结点
 	 * @param in
-	 *            ��������
+	 *            中序数组
 	 * @param j
-	 *            ����������ʼ����
+	 *            中序子树起始索引
 	 * @param len
-	 *            ���������ڵ㳤��
-	 * @return һ�εݹ��ͷ���
+	 *            中序子树节点长度
+	 * @return 一次递归的头结点
 	 */
 	private static TreeNode construct(int[] post, int i, int[] in, int j,
 			int len) {

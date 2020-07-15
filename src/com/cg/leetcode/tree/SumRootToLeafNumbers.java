@@ -31,9 +31,9 @@ public class SumRootToLeafNumbers {
 	}
 
 	/**
-	 * @param p��ǰ�Ľ��
-	 * @param res��ǰ�ĺ�
-	 * @param numbers�洢һ��root-leaf������
+	 * @param p当前的结点
+	 * @param res当前的和
+	 * @param numbers存储一条root-leaf的数字
 	 */
 	private static void getNumbers(TreeNode p, int res,
 			ArrayList<Integer> numbers) {

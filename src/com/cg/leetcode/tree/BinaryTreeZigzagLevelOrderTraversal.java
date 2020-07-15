@@ -32,13 +32,13 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 		System.out.print(zigzagLevelOrder(ConstructTree.constructTree("1#23#456")));
 	}
 	/*
-	 * ����������Ҫ��¼��ǰ�����һ��Ľ������û���һ�������1������������ż���㷴��
+	 * 逐层遍历，需要记录当前层和下一层的结点数，没完成一层层数加1，奇数层正序，偶数层反序。
 	 */
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 		if(root == null)
 			return null;
 		List<List<Integer>> res = new LinkedList<List<Integer>>();
-		//Deque�ӿ��к���ȳ��Ķ�ջ����
+		//Deque接口有后进先出的堆栈功能
 		Deque<TreeNode> que = new LinkedList<TreeNode>();
 		TreeNode temp = root;
 		int now = 1,next = 0,levelCount = 1;
@@ -66,15 +66,15 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 		return res;
 	}
 	/**
-	 * @param levelList ��������һ��
-	 * @param levelCount	�������Ĳ���
-	 * @param val	Ҫ��ӵ�Ԫ��
+	 * @param levelList 二叉树的一层
+	 * @param levelCount	二叉树的层数
+	 * @param val	要添加的元素
 	 */
 	private static void addTreeNode(LinkedList<Integer> levelList, int levelCount,	int val) {
-		//�������������
+		//奇数层正序添加
 		if((levelCount&1) == 1)
 			levelList.add(val);
-		//ż�����������
+		//偶数层逆序添加
 		else
 			levelList.push(val);
 	}

@@ -11,7 +11,7 @@ public class ClimbingStairs {
 }
 
 class Solution {
-	// �õݹ�ķ���ʱ�临�Ӷ�̫�󣡣�
+	// 用递归的方法时间复杂度太大！！
 	public int climbStairs1(int n) {
 		if (n == 0 || n == 1)
 			return 1;

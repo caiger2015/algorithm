@@ -14,7 +14,7 @@ public class SortList {
 		ListNode l = new ListNode("14734296");
 		System.out.print(sortList(l));
 	}
-	//�鲢�ķ�ʽ�����м�ڵ�ϲ���������
+	//归并的方式，找中间节点合并两个部分
 	public static ListNode sortList(ListNode head) {
 		if(head == null || head.next==null){
 			return head;
@@ -22,7 +22,7 @@ public class SortList {
 		ListNode slow = head;
 		ListNode quick = head;
 		ListNode last = head;
-		//����ָ�����м�ڵ㣬��ʼλ�ö�Ϊhead���Դ�������<=2�ı߽����
+		//快慢指针找中间节点，起始位置都为head可以处理结点数<=2的边界情况
 		while(quick==head||quick != null){
 			last = slow;
 			slow = slow.next;
@@ -73,7 +73,7 @@ public class SortList {
 		}
 		return head.next;
 	}
-	//���ŵķ�ʽ��time limit exceeded
+	//快排的方式，time limit exceeded
 	public static ListNode sortList1(ListNode head) {
 		if(head == null || head.next == null){
 			return head;

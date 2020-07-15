@@ -44,7 +44,7 @@ public class BinaryTreePaths {
 		if (root == null) {
 			return;
 		}
-		// ע�͵��ķ�ʽ���У�����һ��path������
+		// 注释掉的方式不行，公用一个path不可以
 		if (root.left != null) {
 			StringBuffer temp1 = new StringBuffer(path);
 			temp1.append(root.val + "->");

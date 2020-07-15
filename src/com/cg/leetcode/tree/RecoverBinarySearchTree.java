@@ -32,7 +32,7 @@ public class RecoverBinarySearchTree {
 
 	/**
 	 * @param root
-	 *            �������������
+	 *            中序遍历二叉树
 	 */
 	private static void inorderTranversal(TreeNode root) {
 		if (root == null)

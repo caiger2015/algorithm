@@ -1,5 +1,5 @@
 /**
- * �������⣺n����Ψһ����ͬ��ֵ��ͬ��������Ʒ��������c�ı������������ֵ
+ * 背包问题：n件（唯一）不同价值不同重量的物品放入容量c的背包，求出最大价值
  * @caiger
  */
 package com.cg.leetcode.dynamicProgramming;
@@ -14,9 +14,9 @@ public class Bagpack {
 	}
 
 	public int bagpack(int n, int c, int[] w, int[] v) {
-		int[][] res = new int[n][c + 1];// ֮ǰ�����СΪ[n][c],��w[j] = i
-		for (int[] i : res) { // ���������Ʒ������������Ҫ��������
-			for (int j = 0; j < i.length; j++) { // �����±�����
+		int[][] res = new int[n][c + 1];// 之前数组大小为[n][c],当w[j] = i
+		for (int[] i : res) { // 即放入的物品等于总重是需要单独考虑
+			for (int j = 0; j < i.length; j++) { // 否则下标会溢出
 				i[j] = 0;
 			}
 		}
@@ -24,7 +24,7 @@ public class Bagpack {
 		for (int i = 1; i <= c; i++) {
 			for (int j = 0; j < n; j++) {
 				if (j == 0) {
-					// if(w[j]>i+1)//����i+1������
+					// if(w[j]>i+1)//这里i+1是容量
 					if (w[j] > i) {
 						res[j][i] = 0;
 					} else {
@@ -32,7 +32,7 @@ public class Bagpack {
 					}
 				} else {
 					/*
-					 * if(w[j]>i)//�������ж���ŵģ�������©��һ�����w[j] = i+1 { if(w[j] ==
+					 * if(w[j]>i)//这里是判断序号的，但是遗漏了一种情况w[j] = i+1 { if(w[j] ==
 					 * i+1&&res[j-1][i] == 0) res[j][i] = v[j]; else{ res[j][i]
 					 * = res[j-1][i]; } }
 					 */

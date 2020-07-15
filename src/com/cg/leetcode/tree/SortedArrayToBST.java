@@ -20,12 +20,12 @@ public class SortedArrayToBST {
 	}
 
 	/**
-	 * description����begin��end��������������ҵ����м�Ľڵ���Ϊһ����/�Һ��ӡ�
+	 * description：从begin到end的排序的数组中找到最中间的节点作为一个左/右孩子。
 	 * 
-	 * @param numsҪת��������
-	 * @param begin����Ѱ�ҵ�����
-	 * @param end��ʼѰ�ҵ�����
-	 * @return ���ش��������ҵ��Ľ��
+	 * @param nums 要转换的数组
+	 * @param begin 结束寻找的索引
+	 * @param end 开始寻找的索引
+	 * @return 返回从数组中找到的结点
 	 */
 	private static TreeNode sortedArrayToBST(int[] nums, int begin, int end) {
 		if (begin <= end) {

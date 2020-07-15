@@ -8,7 +8,7 @@ public class MaximumProductSubarray {
 	}
 
 	/*
-	 * ��¼���ֽ�����������
+	 * 记录两种结果，正负情况
 	 */
 	public static int maxProduct(int[] nums) {
 		if (nums == null || nums.length == 0)
@@ -18,7 +18,7 @@ public class MaximumProductSubarray {
 		int negative = nums[0];
 		for (int i = 1; i < nums.length; i++) {
 			int a = positive * nums[i];
-			int b = negative * nums[i];// ֱ���ж�ÿ���۳˵Ľ��
+			int b = negative * nums[i];// 直接判断每次累乘的结果
 			positive = Math.max(Math.max(a, b), nums[i]);
 			negative = Math.min(Math.min(a, b), nums[i]);
 			maxProduct = Math.max(maxProduct, positive);

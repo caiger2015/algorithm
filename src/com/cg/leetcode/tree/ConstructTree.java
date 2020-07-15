@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Ϊ�˽��е��Զ��������࣬���Ը���leetcode�Զ������ı�����ʽ���������������á�#����ʾnull�Ĳ����
+ * 为了进行调试而创建的类，可以根据leetcode对二叉树的表现形式建立二叉树，即用“#”表示null的层遍历
  * 
  * @author caiger
  */
@@ -34,18 +34,18 @@ public class ConstructTree {
 		System.out.println(new LevelorderTraversal()
 				.levelorderTraversal(constructTree("1#23#45")));
 	}
-	//�����������������̣���"#"����յĽ��Ѷ���������һ������������
+	//二叉树层遍历的逆过程，用"#"代替空的结点把二叉树看成一棵满二叉树。
 	public static TreeNode constructTree(String s) {
 		if (s == null)
 			return null;
-		TreeNode root = new TreeNode(s.charAt(0) - '0');// char������ʽת����int
+		TreeNode root = new TreeNode(s.charAt(0) - '0');// char可以隐式转换成int
 		Queue<TreeNode> que = new LinkedList<TreeNode>();
 		que.add(root);
 		int i = 1, n = s.length();
 		TreeNode temp;
 		while (!que.isEmpty() && i < n) {
 			temp = que.poll();
-			// Խ����ж�����&&��ǰ��
+			// 越界的判定放在&&的前边
 			if (i < n && s.charAt(i) != '#') {
 				temp.left = new TreeNode(s.charAt(i) - '0');
 				que.add(temp.left);

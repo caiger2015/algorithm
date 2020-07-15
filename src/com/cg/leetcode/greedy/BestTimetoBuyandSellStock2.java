@@ -16,7 +16,7 @@ public class BestTimetoBuyandSellStock2 {
 	}
 
 	/*
-	 * ÿһ�ε��������Ķζ���profit
+	 * 每一段单调递增的段都是profit
 	 */
 	public static int maxProfit(int[] prices) {
 		if (prices == null || prices.length <= 1)
@@ -40,7 +40,7 @@ public class BestTimetoBuyandSellStock2 {
 	}
 
 	/*
-	 * �������ӵĲ��ֶ���profit��sum = sum+a[i]-a[i-1](if a[i]>a[i-1])
+	 * 所有增加的部分都是profit，sum = sum+a[i]-a[i-1](if a[i]>a[i-1])
 	 */
 	public static int maxPro(int[] prices) {
 		if (prices == null || prices.length <= 1)
