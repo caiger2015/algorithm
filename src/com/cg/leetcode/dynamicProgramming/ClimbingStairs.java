@@ -4,25 +4,21 @@ public class ClimbingStairs {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Solution slSolution = new Solution();
-		System.out.print(slSolution.climbStairs(3) + "");
+		System.out.print(new ClimbingStairs().climbStairs(3) + "");
 	}
 
-}
-
-class Solution {
-	// 用递归的方法时间复杂度太大！！
 	public int climbStairs1(int n) {
-		if (n == 0 || n == 1)
+		if (n == 0 || n == 1) {
 			return 1;
-		else
+		} else {
 			return climbStairs1(n - 1) + climbStairs1(n - 2);
+		}
 	}
 
 	public int climbStairs(int n) {
-		if (n == 0 || n == 1)
+		if (n == 0 || n == 1) {
 			return 1;
-		else {
+		} else {
 			int[] result = new int[n + 1];
 			result[0] = 1;
 			result[1] = 1;
@@ -32,4 +28,5 @@ class Solution {
 			return result[n];
 		}
 	}
+
 }

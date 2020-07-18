@@ -9,18 +9,19 @@ package com.cg.leetcode.greedy;
  * 
  * @author caiger
  */
-public class BestTimetoBuyandSellStock2 {
+public class BestTimeToBuyAndSellStock2 {
 
 	public static void main(String[] args) {
-		System.out.print(maxProfit(new int[] { 1, 2, 2, 5, 3, 4, 1, 2, 1 }));
+		System.out.print(maxProfit(new int[]{1, 2, 2, 5, 3, 4, 1, 2, 1}));
 	}
 
 	/*
 	 * 每一段单调递增的段都是profit
 	 */
 	public static int maxProfit(int[] prices) {
-		if (prices == null || prices.length <= 1)
+		if (prices == null || prices.length <= 1) {
 			return 0;
+		}
 		int n = prices.length;
 		int i = 1;
 		int profit = 0;
@@ -34,8 +35,9 @@ public class BestTimetoBuyandSellStock2 {
 			}
 			i++;
 		}
-		if (prices[n - 1] > buy)
+		if (prices[n - 1] > buy) {
 			profit += (prices[n - 1] - buy);
+		}
 		return profit;
 	}
 

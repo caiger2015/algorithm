@@ -7,20 +7,12 @@ package com.cg.leetcode.dynamicProgramming;
 public class Bagpack {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int x = new Bagpack().bagpack(2, 2, new int[] { 3, 2 }, new int[] { 1,
-				2 });
+		int x = new Bagpack().bagpack(2, 2, new int[]{3, 2}, new int[]{1, 2});
 		System.out.print(x + "");
 	}
 
 	public int bagpack(int n, int c, int[] w, int[] v) {
 		int[][] res = new int[n][c + 1];// 之前数组大小为[n][c],当w[j] = i
-		for (int[] i : res) { // 即放入的物品等于总重是需要单独考虑
-			for (int j = 0; j < i.length; j++) { // 否则下标会溢出
-				i[j] = 0;
-			}
-		}
-
 		for (int i = 1; i <= c; i++) {
 			for (int j = 0; j < n; j++) {
 				if (j == 0) {
@@ -39,8 +31,7 @@ public class Bagpack {
 					if (w[j] > i) {
 						res[j][i] = res[j - 1][i];
 					} else {
-						res[j][i] = res[j - 1][i] > (res[j - 1][i - w[j]] + v[j]) ? res[j - 1][i]
-								: res[j - 1][i - w[j]] + v[j];
+						res[j][i] = Math.max(res[j - 1][i], (res[j - 1][i - w[j]] + v[j]));
 					}
 				}
 			}
