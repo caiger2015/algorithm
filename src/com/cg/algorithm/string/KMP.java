@@ -177,7 +177,7 @@ public class KMP {
 
     /**
      * @param ptn
-     * @return dfa[j][c] 表示txt[i]=c和ptn[j]比较时对应的最长匹配前缀长度
+     * @return dfa[j][c]表示在ptn.charAt(j)=c时ptn[0,j]对应的最长匹配前缀长度是dfa[j][c]
      */
     private int[][] getDfa(String ptn) {
         int[][] dfa = new int[ptn.length()][256];
@@ -186,13 +186,16 @@ public class KMP {
         int n = ptn.length();
         //从第一位开始匹配ptn[0,k]和ptn[0,j]
         for (int j = 1, k = 0; j < n; j++) {
-            //dp2：状态回退
+            //dp2：状态回退，
+            //状态k是指上一次ptn[0,j-1]对应的最长匹配前缀长度是k，即ptn[0,j-1]对应的最长前缀是ptn[0,k-1]
+            //(ptn[0,j-1],ptn[j]):(ptn[0,k-1],ptn[k])，状态j对应的上一状态是k，所以继承上一状态dfa[j][c]=dfa[k][c]
+            //即ptn[j][c]对应的最长匹配前缀长度是ptn[k][c]
             for (int c = 0; c < 256; c++) {
                 dfa[j][c] = dfa[k][c];
             }
-            //dp3：状态前进
+            //dp3：状态前进，字符匹配ptn[j]时表示最长匹配前缀长度是j+1
             dfa[j][ptn.charAt(j)] = j + 1;
-            //dp4：状态传递给下一位
+            //dp4：状态k传递给下一位，（等价于在循环开始获取之前状态）
             k = dfa[k][ptn.charAt(j)];
         }
         return dfa;
