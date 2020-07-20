@@ -187,7 +187,7 @@ public class KMP {
         //从第一位开始匹配ptn[0,k]和ptn[0,j]
         for (int j = 1, k = 0; j < n; j++) {
             //dp2：状态回退，
-            //状态k是指上一次ptn[0,j-1]对应的最长匹配前缀长度是k，即ptn[0,j-1]对应的最长前缀是ptn[0,k-1]
+            //上一次ptn[0,j-1]对应的最长匹配前缀长度是k，即ptn[0,j-1]对应的最长前缀是ptn[0,k-1]
             //(ptn[0,j-1],ptn[j]):(ptn[0,k-1],ptn[k])，状态j对应的上一状态是k，所以继承上一状态dfa[j][c]=dfa[k][c]
             //即ptn[j][c]对应的最长匹配前缀长度是ptn[k][c]
             for (int c = 0; c < 256; c++) {
