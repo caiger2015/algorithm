@@ -1,4 +1,4 @@
-package com.cg.leetcode.twoPointers;
+package com.cg.leetcode.slidingWindow;
 
 /**
  * 76. 最小覆盖子串

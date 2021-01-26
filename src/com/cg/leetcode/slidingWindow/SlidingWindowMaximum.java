@@ -1,4 +1,4 @@
-package com.cg.leetcode.twoPointers;
+package com.cg.leetcode.slidingWindow;
 
 import java.util.Deque;
 import java.util.LinkedList;
