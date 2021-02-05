@@ -14,13 +14,19 @@ public class ListNode {
 		this.val = val;
 	}
 
+	ListNode(int val, ListNode next) {
+		this.val = val;
+		this.next = next;
+	}
+
 	/**
 	 * @param s
 	 *            利用字符串构造链表
 	 */
 	public ListNode(String s) {
-		if (s == null || s.length() == 0)
+		if (s == null || s.length() == 0) {
 			return;
+		}
 		this.val = s.charAt(0) - '0';
 		ListNode temp = this;
 		for (int i = 1; i < s.length(); i++) {
