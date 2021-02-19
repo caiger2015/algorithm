@@ -117,7 +117,7 @@ public class Bagpack {
             dp[w[0]] = v[0];
         }
         for (int i = 1; i < n; i++) {
-            //j是当前背包容量
+            //j是当前背包容量，反向遍历，避免同一个i用多次，如j-w[i]-w[i]
             for (int j = c; j >= 1; j--) {
                 if (w[i] <= j) {
                     dp[j] = Math.max(dp[j], dp[j - w[i]] + v[i]);
