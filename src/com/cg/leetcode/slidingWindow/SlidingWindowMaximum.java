@@ -3,6 +3,10 @@ package com.cg.leetcode.slidingWindow;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * 单调队列
+ * @author caigen
+ */
 public class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
